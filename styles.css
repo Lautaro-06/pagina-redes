@@ -62,3 +62,46 @@ nav a {
 nav a:hover {
     background-color: rgba(255,255,255,0.15);
 }
+/* Main Content */
+main {
+    margin-top: 140px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    background: white;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.servicio {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
