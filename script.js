@@ -37,3 +37,26 @@ function initScrollEffect() {
         });
     });
 }
+
+function createInteractiveButton() {
+    const button = document.createElement('button');
+    button.textContent = '¡Haz clic para magia!';
+    button.style.cssText = `
+        display: block;
+        margin: 20px auto;
+        padding: 12px 24px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    `;
+    
+    button.addEventListener('click', function() {
+        this.textContent = '¡Magia realizada! 🎉';
+        this.style.background = '#2196F3';
+    });
+    
+    waitForElement('main', (main) => main.appendChild(button));
+}
