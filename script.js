@@ -1,36 +1,26 @@
-// script.js - Funcionalidades interactivas para la página
-console.log('JavaScript cargando correctamente');
+// script.js - Funcionalidades JavaScript
+console.log('✅ JavaScript cargado');
 
-// Función para esperar a que elementos del DOM estén listos
-function waitForElement(selector, callback, maxWait = 5000) {
-    const startTime = Date.now();
-    
-    function checkElement() {
+function waitForElement(selector, callback) {
+    const checkElement = () => {
         const element = document.querySelector(selector);
-        if (element) {
-            callback(element);
-        } else if (Date.now() - startTime < maxWait) {
-            setTimeout(checkElement, 100);
-        }
-    }
+        if (element) callback(element);
+        else setTimeout(checkElement, 100);
+    };
     checkElement();
 }
 
-// Inicializar todas las funcionalidades cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Inicializando funcionalidades JavaScript...');
     initScrollEffect();
     createInteractiveButton();
     initFormValidation();
 });
 
-// Efecto de cambio de color en header al hacer scroll
 function initScrollEffect() {
     waitForElement('header', function(header) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 header.style.backgroundColor = '#2c3e50';
-                header.style.transition = 'all 0.4s ease';
             } else {
                 header.style.backgroundColor = '';
             }
@@ -40,23 +30,32 @@ function initScrollEffect() {
 
 function createInteractiveButton() {
     const button = document.createElement('button');
-    button.textContent = '¡Haz clic para magia!';
-    button.style.cssText = `
-        display: block;
-        margin: 20px auto;
-        padding: 12px 24px;
-        background: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    `;
+    button.textContent = '¡Haz clic!';
     
     button.addEventListener('click', function() {
-        this.textContent = '¡Magia realizada! 🎉';
-        this.style.background = '#2196F3';
+        alert('¡Botón funcionando!');
     });
     
     waitForElement('main', (main) => main.appendChild(button));
+}
+
+function initFormValidation() {
+    waitForElement('main', function(main) {
+        const input = document.createElement('input');
+        input.placeholder = 'Ingresa tu email';
+        
+        const button = document.createElement('button');
+        button.textContent = 'Validar';
+        
+        button.addEventListener('click', function() {
+            if (input.value.includes('@')) {
+                alert('Email válido');
+            } else {
+                alert('Email inválido');
+            }
+        });
+        
+        main.appendChild(input);
+        main.appendChild(button);
+    });
 }
