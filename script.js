@@ -27,16 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Efecto de cambio de color en header al hacer scroll
 function initScrollEffect() {
     waitForElement('header', function(header) {
-        console.log('Aplicando efecto scroll al header');
-        
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 header.style.backgroundColor = '#2c3e50';
-                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
                 header.style.transition = 'all 0.4s ease';
             } else {
                 header.style.backgroundColor = '';
-                header.style.boxShadow = '';
             }
         });
     });
